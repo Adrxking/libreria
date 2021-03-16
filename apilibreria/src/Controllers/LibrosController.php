@@ -18,7 +18,6 @@
             $parametros = $request->getQueryParams();
 
             $precio = $parametros['precio'];
-            $editorial = $parametros['editorial'];
 
             var_dump($precio);
 
