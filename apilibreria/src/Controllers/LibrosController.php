@@ -16,16 +16,19 @@
 
         public function getFilter(Request $request, Response $response, $args){
             $parametros = $request->getQueryParams();
+
             $precio = $parametros['precio'];
-            var_dump($parametros);
-/*             $nombre = $parametros['nombre_libro'];
-            echo $nombre. " " .$precio;
-            $libros = $this->model->getFilter($sql, $param);
-            $dataJson = json_encode($libros);
-            $response->getBody()->write($parametros);
+            $editorial = $parametros['editorial'];
+
+            var_dump($precio);
+
+            $valoresParametros = array ($precio);
+            $libros = LibrosModel::getFilter($valoresParametros);
+            $librosJson = json_encode($libros);
+            $response->getBody()->write($librosJson);
             return $response
                 ->withHeader('Content-Type', 'application/json')
-                ->withStatus(200); */
+                ->withStatus(200); 
         }
         
         public function getAll($request, $response, $args){
