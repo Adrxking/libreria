@@ -16,16 +16,16 @@
 
         public function getFilter(Request $request, Response $response, $args){
             $parametros = $request->getQueryParams();
-            /* var_dump($parametros);
             $precio = $parametros['precio'];
-            $nombre = $parametros['nombre_libro'];
-            echo $nombre. " " .$precio; */
+            var_dump($parametros);
+/*             $nombre = $parametros['nombre_libro'];
+            echo $nombre. " " .$precio;
             $libros = $this->model->getFilter($sql, $param);
             $dataJson = json_encode($libros);
             $response->getBody()->write($parametros);
             return $response
                 ->withHeader('Content-Type', 'application/json')
-                ->withStatus(200);
+                ->withStatus(200); */
         }
         
         public function getAll($request, $response, $args){
