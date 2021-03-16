@@ -13,7 +13,7 @@ class LibrosModel {
     }
     public static function getFilter($param){
         LibrosModel::conexionDB();
-        $sql = "Select * from libros where precio > ?";
+        $sql = "Select * from libros where precio > ? and editorid = ?";
         $data = LibrosModel::$DB->run($sql, $param);
         return $data->fetchAll();
     }

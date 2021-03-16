@@ -18,10 +18,11 @@
             $parametros = $request->getQueryParams();
 
             $precio = $parametros['precio'];
+            $editorial = $parametros['editorial'];
 
             var_dump($precio);
 
-            $valoresParametros = array ($precio);
+            $valoresParametros = array ($precio, $editorial);
             $libros = LibrosModel::getFilter($valoresParametros);
             $librosJson = json_encode($libros);
             $response->getBody()->write($librosJson);
