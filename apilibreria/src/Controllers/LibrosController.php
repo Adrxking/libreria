@@ -20,6 +20,8 @@
             $precio = $parametros['precio'];
             $nombre = $parametros['nombre_libro'];
             echo $nombre. " " .$precio; */
+            $libros = $this->model->getFilter($sql, $param);
+            $dataJson = json_encode($libros);
             $response->getBody()->write($parametros);
             return $response
                 ->withHeader('Content-Type', 'application/json')
