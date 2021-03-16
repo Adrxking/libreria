@@ -16,10 +16,14 @@
 
         public function getFilter(Request $request, Response $response, $args){
             $parametros = $request->getQueryParams();
-            var_dump($parametros);
+            /* var_dump($parametros);
             $precio = $parametros['precio'];
             $nombre = $parametros['nombre_libro'];
-            echo $nombre. " " .$precio;
+            echo $nombre. " " .$precio; */
+            $response->getBody()->write($parametros);
+            return $response
+                ->withHeader('Content-Type', 'application/json')
+                ->withStatus(200);
         }
         
         public function getAll($request, $response, $args){
