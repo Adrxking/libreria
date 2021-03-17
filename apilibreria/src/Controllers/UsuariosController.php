@@ -16,7 +16,7 @@
             $ciudad = $parametros['ciudad'];
             $valores = array($uid, $nombre, $apellidos, $direccion, $ciudad, $anionac);
             $result = UsuariosModel::new($valores);
-         //   $response->getBody()->write($result);
+            $response->getBody()->write($result);
             return $response
                 ->withHeader('Content-Type', 'application/json')
                 ->withStatus(200);
