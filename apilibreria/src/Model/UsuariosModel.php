@@ -12,6 +12,14 @@ class UsuariosModel {
         UsuariosModel::$DB = new DB();
     }
 
+    public static function delete($param){
+             UsuariosModel::conexionDB();
+
+             $sql = "delete from usuarios where usuarioid = ?";
+             $data = UsuariosModel::$DB->run($sql, $param);
+             return "Usuario ". $param[0] . " borrado correctamente ";
+    }
+
     public static function new($param){
        // print_r(array_keys($param));
        try{

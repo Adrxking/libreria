@@ -21,6 +21,14 @@
                 ->withHeader('Content-Type', 'application/json')
                 ->withStatus(200);
         }
+
+        public function delete(Request $request, Response $response, $args) {
+            $id = $request->getAttribute('usuarioid');
+          
+            $usuario = Usuarios::find($id);
+          
+            $usuario->delete();
+          });
        
         public function getAll($request, $response, $args){
             $usuarios = UsuariosModel::getAll();
