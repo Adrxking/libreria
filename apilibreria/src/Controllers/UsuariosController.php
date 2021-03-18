@@ -23,7 +23,7 @@
         }
 
         public function delete(Request $request, Response $response, $args) {
-            $id = $request->getAttribute('usuarioid');
+            $id = $request->getQueryParams('usuarioid');
           
             $usuario = Usuarios::find($id);
           
