@@ -25,6 +25,8 @@
         public function delete(Request $request, Response $response, $args) {
             $parametros = $request->getQueryParams();
             $id = $parametros['usuarioid'];
+
+            var_dump($id);
           
             $valoresParametros = array ($id);
             $usuarios = UsuariosModel::delete($valoresParametros);
