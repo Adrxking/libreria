@@ -23,11 +23,16 @@
         }
 
         public function delete(Request $request, Response $response, $args) {
-            $id = $request->getQueryParams('usuarioid');
+            $parametros = $request->getQueryParams();
+            $id = $parametros['usuarioid'];
           
-            $usuario = Usuarios::find($id);
-          
-            $usuario->delete();
+            $valoresParametros = array ($id);
+            $usuarios = UsuariosModel::delete($valoresParametros);
+            $usuariosJson = json_encode($usuarios);
+            $response->getBody()->write($usuariosJson);
+            return $response
+                ->withHeader('Content-Type', 'application/json')
+                ->withStatus(200); 
           });
        
         public function getAll($request, $response, $args){
